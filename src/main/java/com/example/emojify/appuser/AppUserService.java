@@ -19,6 +19,7 @@ public class AppUserService implements UserDetailsService {
     // reference to repo
     private final AppUserRepository appUserRepository;
 
+
     @Override
     public UserDetails loadUserByUsername(String email)
             throws UsernameNotFoundException {
