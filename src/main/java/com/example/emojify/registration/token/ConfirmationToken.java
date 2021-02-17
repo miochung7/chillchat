@@ -41,7 +41,7 @@ public class ConfirmationToken {
     private LocalDateTime confirmedAt;
 
     @ManyToOne // User can have many confirmation tokens
-    @JoinColumn(
+    @JoinColumn( // Adds user_id to confirmation_token table in db
             nullable = false,
             name = "app_user_id"
     )
