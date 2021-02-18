@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 public class RegistrationController {
 
     // reference to the RegistrationService
-    private RegistrationService registrationService;
+    private final RegistrationService registrationService;
 
     @PostMapping
     // method to register person, @RequestBody takes RegistrationRequest
