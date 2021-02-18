@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 @Entity
 public class ConfirmationToken {
 
-    // Defines primary key with unique generator firstName
+    // Defines primary key with unique generator
     @SequenceGenerator(
             name ="confirmation_token_sequence",
             sequenceName = "confirmation_token_sequence",
