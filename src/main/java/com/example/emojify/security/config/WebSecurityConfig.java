@@ -25,11 +25,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable() // send POST req without being rejected
                 .authorizeRequests()
-                    .antMatchers("/api/v*/registration/**") // allow access here
+                    .antMatchers("/api/v*/registration/**", "/", "index", "/css/*", "/js/*") // allow access here
                     .permitAll()
                 .anyRequest()
                 .authenticated().and()
                 .formLogin()
+                .loginPage("/login").permitAll()
                 .defaultSuccessUrl("/spotify", true)
                 .and()
                 .logout()
