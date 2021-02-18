@@ -8,6 +8,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/")
 public class TemplateController {
 
+    @GetMapping("signup")
+    public String getSignup() {
+        return "signup";
+    }
+
     @GetMapping("login")
     public String getLogin() {
         return "login";

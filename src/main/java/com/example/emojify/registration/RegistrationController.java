@@ -4,14 +4,15 @@ import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(path = "api/v1/registration")
+@RequestMapping(path = "/signup")
 @AllArgsConstructor // generates a constructor with 1 parameter for each field in your class.
 public class RegistrationController {
 
     // reference to the RegistrationService
     private final RegistrationService registrationService;
 
-    @PostMapping
+
+    @PostMapping()
     // method to register person, @RequestBody takes RegistrationRequest
     public String register(@RequestBody RegistrationRequest request) {
         return registrationService.register(request);

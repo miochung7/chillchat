@@ -1,6 +1,8 @@
 package com.example.emojify.appuser;
 
 
+import com.example.emojify.email.EmailSender;
+import com.example.emojify.registration.RegistrationService;
 import com.example.emojify.registration.token.ConfirmationToken;
 import com.example.emojify.registration.token.ConfirmationTokenService;
 import lombok.AllArgsConstructor;
@@ -22,11 +24,13 @@ public class AppUserService implements UserDetailsService {
     private final static String USER_NOT_FOUND_MSG =
             "user with email %s not found";
 
-    // reference to repo
+
     private final AppUserRepository appUserRepository;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
     private final ConfirmationTokenService confirmationTokenService;
+    private final EmailSender emailSender;
 
+    // If email doesn't exist throws error
     @Override
     public UserDetails loadUserByUsername(String email)
             throws UsernameNotFoundException {
@@ -36,13 +40,19 @@ public class AppUserService implements UserDetailsService {
                                 String.format(USER_NOT_FOUND_MSG, email)));
     }
 
-    // checks if user exists
+    // checks if email already exists
     public String signUpUser(AppUser appUser) {
         boolean userExists = appUserRepository
                 .findByEmail(appUser.getEmail())
                 .isPresent();
 
         if (userExists) {
+//            if (appUser.getEnabled() == false) {
+//                String link = "http://localhost:8080/api/v1/registration/confirm?token=" + appUser;
+//                emailSender.send(
+//                        appUser.getEmail(),
+//                        registrationService.buildEmail(appUser.getFirstName(), link));
+            
             // TODO check if its same user
             // TODO if email not confirmed send confirmation email
 
