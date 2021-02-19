@@ -1,10 +1,14 @@
 package com.example.emojify.registration;
 
 import lombok.AllArgsConstructor;
+import org.springframework.http.MediaType;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
-@RequestMapping(path = "/signup")
+import javax.print.attribute.standard.Media;
+
+@Controller
+@RequestMapping(path = "signup")
 @AllArgsConstructor // generates a constructor with 1 parameter for each field in your class.
 public class RegistrationController {
 
@@ -12,14 +16,16 @@ public class RegistrationController {
     private final RegistrationService registrationService;
 
 
-    @PostMapping()
-    // method to register person, @RequestBody takes RegistrationRequest
-    public String register(@RequestBody RegistrationRequest request) {
-        return registrationService.register(request);
+    @PostMapping( produces = {MediaType.APPLICATION_FORM_URLENCODED_VALUE})
+    // method to register person
+    public String register(RegistrationRequest request) {
+        registrationService.register(request);
+        return "redirect:/signup?success";
     }
 
     @GetMapping(path = "confirm")
     public String confirm(@RequestParam("token") String token) {
-        return registrationService.confirmToken(token);
+        registrationService.confirmToken(token);
+        return "tokenSuccessful";
     }
 }
