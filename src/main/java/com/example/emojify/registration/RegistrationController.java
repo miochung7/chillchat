@@ -26,6 +26,6 @@ public class RegistrationController {
     @GetMapping(path = "confirm")
     public String confirm(@RequestParam("token") String token) {
         registrationService.confirmToken(token);
-        return "tokenSuccessful";
+        return "redirect:/signup?tokenSuccess";
     }
 }

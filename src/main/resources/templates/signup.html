@@ -17,6 +17,9 @@
         <div th:if="${param.success}">
             <div class="alert alert-info"> You've successfully registered to our awesome app!</div>
         </div>
+        <div th:if="${param.tokenSuccess}">
+            <div class="alert alert-info"> Thank you! You've now verified your account!</div>
+        </div>
         <p>
             <label for="firstName" class="sr-only">First Name</label>
             <input type="text" id="firstName" name="firstName" class="form-control" placeholder="First Name" required="" autofocus="">
