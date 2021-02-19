@@ -27,7 +27,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable() // send POST req without being rejected
                 .authorizeRequests()
-                    .antMatchers("/api/v*/registration/**", "/", "index", "/css/*", "/js/*", "/signup") // allow access here
+                    .antMatchers("/signup/**", "/", "index", "/css/*", "/js/*") // allow access here
                     .permitAll()
                 .anyRequest()
                 .authenticated().and()
@@ -45,7 +45,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     .clearAuthentication(true)
                     .invalidateHttpSession(true)
                     .deleteCookies("JSESSIONID", "remember-me")
-                    .logoutSuccessUrl("/login");
+                    .logoutSuccessUrl("/login?logout");
 
     }
 

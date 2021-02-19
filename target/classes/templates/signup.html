@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -12,15 +12,18 @@
 </head>
 <body>
 <div class="container">
-    <form class="form-signup" method="post" action="user/registration">
+    <form class="form-signup" method="post" th:action="@{/signup}">
         <h2 class="form-signup-heading">Please signup</h2>
+        <div th:if="${param.success}">
+            <div class="alert alert-info"> You've successfully registered to our awesome app!</div>
+        </div>
         <p>
-            <label for="first-name" class="sr-only">First Name</label>
-            <input type="text" id="first-name" name="first-name" class="form-control" placeholder="First Name" required="" autofocus="">
+            <label for="firstName" class="sr-only">First Name</label>
+            <input type="text" id="firstName" name="firstName" class="form-control" placeholder="First Name" required="" autofocus="">
         </p>
         <p>
-            <label for="last-name" class="sr-only">Last Name</label>
-            <input type="text" id="last-name" name="last-name" class="form-control" placeholder="Last Name" required="" autofocus="">
+            <label for="lastName" class="sr-only">Last Name</label>
+            <input type="text" id="lastName" name="lastName" class="form-control" placeholder="Last Name" required="" autofocus="">
         </p>
         <p>
             <label for="email" class="sr-only">Email Address</label>
