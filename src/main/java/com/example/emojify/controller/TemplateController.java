@@ -25,4 +25,5 @@ public class TemplateController {
     public String getSpotify() {
         return "spotify";
     }
+
 }
