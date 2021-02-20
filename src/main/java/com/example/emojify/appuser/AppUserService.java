@@ -57,7 +57,8 @@ public class AppUserService implements UserDetailsService {
             // TODO if email not confirmed send confirmation email
 
             // OTHERWISE this error will be thrown
-            throw new IllegalStateException("email already taken");
+            String userEmail = appUser.getEmail();
+            throw new IllegalStateException(userEmail + " has already been taken");
         }
 
         // Password encoded is here

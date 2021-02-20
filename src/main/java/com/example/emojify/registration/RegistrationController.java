@@ -1,11 +1,14 @@
 package com.example.emojify.registration;
 
+import com.example.emojify.appuser.AppUser;
 import lombok.AllArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
-import javax.print.attribute.standard.Media;
+import javax.validation.Valid;
 
 @Controller
 @RequestMapping(path = "signup")
@@ -18,7 +21,10 @@ public class RegistrationController {
 
     @PostMapping( produces = {MediaType.APPLICATION_FORM_URLENCODED_VALUE})
     // method to register person
-    public String register(RegistrationRequest request) {
+    public String register(@Valid AppUser appUser, BindingResult result, RegistrationRequest request, Model model) {
+        if (result.hasErrors()) {
+            return "signup";
+        }
         registrationService.register(request);
         return "redirect:/signup?success";
     }
