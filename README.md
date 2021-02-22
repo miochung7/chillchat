@@ -1,3 +1,2 @@
-# Emojify
+# Mental Health App
 
-🎵😃
