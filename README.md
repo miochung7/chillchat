@@ -19,6 +19,8 @@ A web application that allows users to chat with each other.
 - Java
 - Spring Boot
 - WebSocket
+- Lombok
+- Thymeleaf
 
 ## How to use
 
