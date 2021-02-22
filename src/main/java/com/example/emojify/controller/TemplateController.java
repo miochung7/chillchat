@@ -56,9 +56,9 @@ public class TemplateController {
     }
 
 
-    @GetMapping("/spotify")
+    @GetMapping("/chillchat")
     public String getSpotify() {
-        return "spotify";
+        return "chillchat";
     }
 
 
