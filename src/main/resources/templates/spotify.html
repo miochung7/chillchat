@@ -1,4 +1,5 @@
-<html lang="en">
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -13,6 +14,15 @@
 <h1>Spotify</h1>
 <div class="container">
     <form class="form-signin" method="get" action="/logout">
+<!--        <form action="#" th:action="@{/update/{id} (id=${id})}" th:object="${appUser}"  method="post">-->
+<!--        <a th:href="@{/order/{id}/details(id=3,action='show_all')}">-->
+
+<!--        <a th:href="@{/mycontroller/{type}(type=${type})}">-->
+
+
+
         <button class="btn btn-lg btn-primary btn-block" type="submit">Logout</button>
     </form>
+    <a class="nav-link"  th:href="@{/edit/}" >Update account details</a>
+
 </div>

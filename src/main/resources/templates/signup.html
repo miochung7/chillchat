@@ -7,35 +7,78 @@
     <meta name="author" content="">
     <title>Please signup</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-    <link href="https://getbootstrap.com/docs/4.0/examples/signin/signin.css" rel="stylesheet" crossorigin="anonymous">
+<!--    <link href="https://getbootstrap.com/docs/4.0/examples/signin/signin.css" rel="stylesheet" crossorigin="anonymous">-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/shards.min.css">
     <link rel="stylesheet"  href="/css/login.css">
 </head>
 <body>
-<div class="container">
-    <form class="form-signup" method="post" th:action="@{/signup}">
-        <h2 class="form-signup-heading">Please signup</h2>
-        <div th:if="${param.success}">
-            <div class="alert alert-info"> You've successfully registered to our awesome app!</div>
-        </div>
-        <p>
-            <label for="firstName" class="sr-only">First Name</label>
-            <input type="text" id="firstName" name="firstName" class="form-control" placeholder="First Name" required="" autofocus="">
-        </p>
-        <p>
-            <label for="lastName" class="sr-only">Last Name</label>
-            <input type="text" id="lastName" name="lastName" class="form-control" placeholder="Last Name" required="" autofocus="">
-        </p>
-        <p>
-            <label for="email" class="sr-only">Email Address</label>
-            <input type="text" id="email" name="email" class="form-control" placeholder="Email Address" required="" autofocus="">
-        </p>
-        <p>
-            <label for="password" class="sr-only">Password</label>
-            <input type="password" id="password" name="password" class="form-control" placeholder="Password" required="">
-        </p>
+<!-- NAVBAR -->
 
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-light ">
+    <a class="navbar-brand" href="/">
+        <img src="/images/logo.png" width="30" height="30" alt="">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <button class="btn btn-outline-light my-2 my-sm-0" >
+                <a class="nav-link" href="/login">Login</a>
+            </button>
+        </form>
+    </div>
+</nav>
+<!-- END -->
+
+<!-- END -->
+<div class="container w-25 mt-5">
+
+        <form class="form-signin" method="post" th:action="@{/signup}" th:object="${appUser}" >
+            <h2 class="form-signin-heading">Please sign up</h2>
+            <div th:if="${param.success}">
+                <div class="alert alert-info"> You've successfully registered to our awesome app!</div>
+            </div>
+
+            <div th:if="${param.tokenSuccess}">
+                <div class="alert alert-info"> Thank you! You've now verified your account!</div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6 ">
+                    <label for="firstName" class="col-form-label">First Name</label>
+                    <input type="text" th:field="*{firstName}" class="form-control" id="firstName" placeholder="First Name">
+                    <span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="lastName" class="col-form-label">Last Name</label>
+                    <input type="text" th:field="*{lastName}" class="form-control" id="lastName" placeholder="Last Name">
+                    <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="email" class="col-form-label">Email Address</label>
+                <input type="text" th:field="*{email}" class="form-control" id="email" placeholder="Email Address">
+                <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="password" class="col-form-label">Password</label>
+                <input type="password" th:field="*{password}" class="form-control" id="password" placeholder="Password">
+                <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="text-danger"></span>
+            </div>
+            <button class="btn btn-lg btn-outline-light btn-pill btn-block" type="submit">Sign up</button>
     </form>
-</div>
+    </div>
+
 </body>
 </html>

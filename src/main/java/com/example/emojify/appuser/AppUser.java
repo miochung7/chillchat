@@ -4,11 +4,14 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.validator.constraints.Length;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 import java.util.Collection;
 import java.util.Collections;
 
@@ -32,9 +35,15 @@ public class AppUser implements UserDetails {
             generator = "user_sequence"
     )
     private Long id;
+    @NotBlank(message = "First name is mandatory")
     private String firstName;
+    @NotBlank(message = "Last name is mandatory")
     private String lastName;
+    @NotBlank(message = "Enter your email")
+    @Email(message = "Enter a valid email address")
     private String email;
+//    @NotBlank(message = "Enter your password")
+    @Length(min = 6, message = "Passwords must be at least 6 characters")
     private String password;
     @Enumerated(EnumType.STRING)
     private AppUserRole appUserRole;
@@ -53,6 +62,9 @@ public class AppUser implements UserDetails {
         this.appUserRole = appUserRole;
     }
 
+    public void setId(long id) {
+        this.id = id;
+    }
     // user will have access
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
