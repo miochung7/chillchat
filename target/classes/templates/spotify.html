@@ -5,24 +5,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Spotify</title>
+    <title>Please Login</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-    <link href="https://getbootstrap.com/docs/4.0/examples/signin/signin.css" rel="stylesheet" crossorigin="anonymous">
+    <!--    <link href="https://getbootstrap.com/docs/4.0/examples/signin/signin.css" rel="stylesheet" crossorigin="anonymous">-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/shards.min.css">
     <link rel="stylesheet"  href="/css/login.css">
+    <link rel="stylesheet"  href="/css/spotify.css">
 </head>
+<body>
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-light ">
+    <a class="navbar-brand" href="/spotify">
+        <img src="/images/logo.png" width="120" height="120" alt="">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-<h1>Spotify</h1>
-<div class="container">
-    <form class="form-signin" method="get" action="/logout">
-<!--        <form action="#" th:action="@{/update/{id} (id=${id})}" th:object="${appUser}"  method="post">-->
-<!--        <a th:href="@{/order/{id}/details(id=3,action='show_all')}">-->
-
-<!--        <a th:href="@{/mycontroller/{type}(type=${type})}">-->
-
-
-
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Logout</button>
-    </form>
-    <a class="nav-link"  th:href="@{/edit/}" >Update account details</a>
-
-</div>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="/spotify">Home <span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <button class="btn btn-outline-light my-2 my-sm-0" >
+                <a class="nav-link" href="/logout" style="color: black;">Logout</a>
+            </button>
+        </form>
+    </div>
+</nav>
+<!-- END -->
+        <div class="page-content col-md-6 ml-auto mr-auto ">
+            <a class="card-container" href="/">
+                <div class="image-container d-flex justify-content-between">
+                    <h4 class="card-title">Start a new chat</h4>
+                    <img src="/images/doodle1.png" alt="character" width="200" height="200">
+                </div>
+            </a>
+        </div>
+        <div class="page-content col-md-6 ml-auto mr-auto mt-4">
+            <a class="card-container" href="/edit">
+                <div class="image-container d-flex justify-content-between">
+                    <h4 class="card-title">Update account details</h4>
+                    <img src="/images/doodle.png" alt="character-two" width="200" height="200">
+                </div>
+            </a>
+        </div>
+</body>
+</html>
