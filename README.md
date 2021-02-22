@@ -18,6 +18,7 @@ A web application that allows users to chat with each other.
 
 - Java
 - Spring Boot
+- WebSocket
 
 ## How to use
 
