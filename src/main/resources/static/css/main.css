@@ -1,39 +1,27 @@
-* {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-
-
-}
-
-html,body {
-    height: 100%;
-    overflow: hidden;
-}
-
 body {
-    margin: 0;
-    padding: 0;
-    font-weight: 400;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 1rem;
-    line-height: 1.58;
-    color: #333;
-    background-color: #daefed;
-    height: 100%;
+    background: linear-gradient(64deg, #45b4d5, #c997db, #9de184);
+    background-size: 600% 600%;
 
+    -webkit-animation: AnimationName 8s ease infinite;
+    -moz-animation: AnimationName 8s ease infinite;
+    animation: AnimationName 8s ease infinite;
 }
 
-body:before {
-    height: 50%;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: #e6f0fd;
-    content: "";
-    z-index: 0;
+@-webkit-keyframes AnimationName {
+    0%{background-position:0% 46%}
+    50%{background-position:100% 55%}
+    100%{background-position:0% 46%}
 }
+@-moz-keyframes AnimationName {
+    0%{background-position:0% 46%}
+    50%{background-position:100% 55%}
+    100%{background-position:0% 46%}
+}
+@keyframes AnimationName {
+    0%{background-position:0% 46%}
+    50%{background-position:100% 55%}
+    100%{background-position:0% 46%}
+   }
 
 .clearfix:after {
     display: block;
@@ -97,9 +85,18 @@ button.default {
 }
 
 button.primary {
-    background-color: #128ff2;
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.12);
-    color: #fff;
+     box-shadow: none;
+        border: 1px solid transparent;
+        font-size: 14px;
+        outline: none;
+        line-height: 100%;
+        white-space: nowrap;
+        vertical-align: middle;
+        padding: 0.6rem 1rem;
+        border-radius: 2px;
+        transition: all 0.2s ease-in-out;
+        cursor: pointer;
+        min-height: 38px;
 }
 
 button.accent {
@@ -113,29 +110,25 @@ button.accent {
 }
 
 .username-page-container {
-    background: #fff;
-    box-shadow: 0 1px 11px rgba(0, 0, 0, 0.27);
-    border-radius: 2px;
-    width: 100%;
-    max-width: 500px;
-    display: inline-block;
-    margin-top: 42px;
-    vertical-align: middle;
-    position: relative;
-    padding: 35px 55px 35px;
-    min-height: 250px;
+  padding: 2em;
+  display: block;
+  background-color: #DAEFED;
+  border-radius: 12px;
+  opacity: 90%;
+  box-shadow: 0 0.46875rem 2.1875rem rgb(90 97 105 / 10%), 0 0.9375rem 1.40625rem rgb(90 97 105 / 10%), 0 0.25rem 0.53125rem rgb(90 97 105 / 12%), 0 0.125rem 0.1875rem rgb(90 97 105 / 10%);
     position: absolute;
-    top: 50%;
+    width: 500px;
+    height: 300px;
+    top: 0;
+    bottom: 0;
     left: 0;
     right: 0;
-    margin: 0 auto;
-    margin-top: -160px;
-}
+    margin: auto;
+ }
 
 .username-page-container .username-submit {
     margin-top: 10px;
 }
-
 
 #chat-page {
     position: relative;
@@ -146,17 +139,17 @@ button.accent {
     max-width: 700px;
     margin-left: auto;
     margin-right: auto;
-    background-color: #fff;
+    border-radius: 12px;
+    background-color: #E6F0FD;
     box-shadow: 0 1px 11px rgba(0, 0, 0, 0.27);
-    margin-top: 30px;
-    height: calc(100% - 60px);
-    max-height: 600px;
+    margin-top: 70px;
+    height: 600px;
     position: relative;
 }
 
 #chat-page ul {
     list-style-type: none;
-    background-color: #FFF;
+    background-color: #E6F0FD;
     margin: 0;
     overflow: auto;
     overflow-y: scroll;
@@ -183,6 +176,8 @@ button.accent {
     width: 100%;
     text-align: center;
     clear: both;
+    background-color: #DAEFED;
+    border-radius: 12px;
 }
 
 #chat-page .event-message p {
@@ -237,6 +232,7 @@ button.accent {
 .chat-header {
     text-align: center;
     padding: 15px;
+    border-radius: 12px;
     border-bottom: 1px solid #ececec;
 }
 
