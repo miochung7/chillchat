@@ -23,7 +23,7 @@ A web application that allows users to chat with each other.
 
 ### Project set up
 
-` git clone git@github.com:miochung7.emojify`
+` git clone git@github.com:miochung7/emojify.git`
 
 ### Database set up
 
