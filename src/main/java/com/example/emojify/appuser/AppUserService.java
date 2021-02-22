@@ -6,13 +6,17 @@ import com.example.emojify.registration.RegistrationService;
 import com.example.emojify.registration.token.ConfirmationToken;
 import com.example.emojify.registration.token.ConfirmationTokenService;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
+import java.util.Objects;
+import java.util.Optional;
 import java.util.UUID;
 
 // Implements an interface for Spring Security - to find users once logged in
@@ -52,7 +56,7 @@ public class AppUserService implements UserDetailsService {
 //                emailSender.send(
 //                        appUser.getEmail(),
 //                        registrationService.buildEmail(appUser.getFirstName(), link));
-            
+
             // TODO check if its same user
             // TODO if email not confirmed send confirmation email
 
@@ -78,7 +82,7 @@ public class AppUserService implements UserDetailsService {
                 token,
                 LocalDateTime.now(),
                 LocalDateTime.now().plusMinutes(15),
-                    appUser
+                appUser
         );
 
         confirmationTokenService.saveConfirmationToken(
@@ -91,5 +95,39 @@ public class AppUserService implements UserDetailsService {
 
     public int enableAppUser(String email) {
         return appUserRepository.enableAppUser(email);
+    }
+
+    @Transactional
+    public void updateAppUser(Long id,
+                              String firstName,
+                              String lastName,
+                              String email) {
+        AppUser appUser = appUserRepository.findById(id)
+                .orElseThrow(() -> new IllegalStateException(
+                        "student with id " + id + " does not exist"));
+
+
+                if (firstName != null &&
+                firstName.length() > 0 &&
+                !Objects.equals(appUser.getFirstName(), firstName)) {
+                    appUser.setFirstName(firstName);
+        }
+        if (lastName != null &&
+                lastName.length() > 0 &&
+                !Objects.equals(appUser.getLastName(), lastName)) {
+            appUser.setLastName(lastName);
+        }
+
+        if (email != null &&
+                email.length() > 0 &&
+                !Objects.equals(appUser.getEmail(), email)) {
+            Optional<AppUser> appUserOptional = appUserRepository
+                    .findByEmail(email);
+            if (appUserOptional.isPresent()) {
+                throw new IllegalStateException("email already taken");
+            }
+            appUser.setEmail(email);
+        }
+        appUserRepository.save(appUser);
     }
 }

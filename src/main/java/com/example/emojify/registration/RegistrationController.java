@@ -25,6 +25,7 @@ public class RegistrationController {
         if (result.hasErrors()) {
             return "signup";
         }
+
         registrationService.register(request);
         return "redirect:/signup?success";
     }

@@ -39,7 +39,7 @@ public class AppUser implements UserDetails {
     private String firstName;
     @NotBlank(message = "Last name is mandatory")
     private String lastName;
-//    @NotBlank(message = "Enter your email")
+    @NotBlank(message = "Enter your email")
     @Email(message = "Enter a valid email address")
     private String email;
 //    @NotBlank(message = "Enter your password")
@@ -62,6 +62,9 @@ public class AppUser implements UserDetails {
         this.appUserRole = appUserRole;
     }
 
+    public void setId(long id) {
+        this.id = id;
+    }
     // user will have access
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
