@@ -17,6 +17,7 @@ A web application that allows users to chat with each other.
 ## Tech used
 
 - Java
+- Maven
 - Spring Boot
 - WebSocket
 - Lombok
