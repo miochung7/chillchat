@@ -1,4 +1,4 @@
-# Mental Health App
+# Chill Chat App
 
 A web application that allows users to chat with each other.
 
@@ -17,6 +17,7 @@ A web application that allows users to chat with each other.
 ## Tech used
 
 - Java
+- Maven
 - Spring Boot
 - WebSocket
 - Lombok
@@ -26,7 +27,7 @@ A web application that allows users to chat with each other.
 
 ### Project set up
 
-` git clone git@github.com:miochung7/emojify.git`
+` git clone git@github.com:miochung7/chillchat.git`
 
 ### Database set up
 

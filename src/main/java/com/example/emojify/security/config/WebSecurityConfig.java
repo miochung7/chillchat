@@ -33,7 +33,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authenticated().and()
                 .formLogin()
                 .loginPage("/login").permitAll()
-                .defaultSuccessUrl("/spotify", true)
+                .defaultSuccessUrl("/chillchat", true)
                 .and()
                 .rememberMe()
                     .tokenValiditySeconds((int) TimeUnit.DAYS.toSeconds(21))
