@@ -1,20 +1,15 @@
 .card-container {
-padding: 2em;
+max-width: 1000px;
 display: block;
-background-color: #DAEFED;
+background-color: #F3F3F3;
 border-radius: 12px;
-opacity: 90%;
 box-shadow: 0 0.46875rem 2.1875rem rgb(90 97 105 / 10%), 0 0.9375rem 1.40625rem rgb(90 97 105 / 10%), 0 0.25rem 0.53125rem rgb(90 97 105 / 12%), 0 0.125rem 0.1875rem rgb(90 97 105 / 10%);
 }
 
 .card-img-top {
-background: rgba(90,97,105,.5);
 object-fit: cover;
-opacity: 80%;
-height: 150px;
-
+height: 400px;
 }
-
 
 
 .title {
@@ -23,10 +18,6 @@ align-self: center;
 
 }
 
-.card-container:hover {
-text-decoration: none;
-opacity: 75%;
-}
 .card-title {
     align-self: center;
 }

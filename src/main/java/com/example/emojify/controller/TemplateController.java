@@ -61,6 +61,16 @@ public class TemplateController {
         return "chillchat";
     }
 
+    @GetMapping("/sensory-awareness")
+    public String getSensoryAwareness() {
+        return "sensory-awareness";
+    }
+
+    @GetMapping("/mindful-writing")
+    public String getMindfulWriting() {
+        return "mindful-writing";
+    }
+
 
 
 
