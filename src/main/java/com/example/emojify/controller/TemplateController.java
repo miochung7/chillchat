@@ -35,7 +35,8 @@ public class TemplateController {
 
     @GetMapping("/edit")
     public String showUpdateForm(Principal principal, Model model) {
-        AppUser appUser = appUserRepository.findByEmail(principal.getName()).orElseThrow(() -> new IllegalArgumentException("Invalid user Id:" + principal.getName()));
+        AppUser appUser = appUserRepository.findByEmail(principal.getName())
+                .orElseThrow(() -> new IllegalArgumentException("Invalid user Id:" + principal.getName()));
         model.addAttribute("appUser", appUser);
         return "update-user";
     }
