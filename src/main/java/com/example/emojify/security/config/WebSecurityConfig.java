@@ -27,7 +27,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable() // send POST req without being rejected
                 .authorizeRequests()
-                    .antMatchers("/signup/**", "index", "/css/*", "/js/*") // allow access here
+                    .antMatchers("/signup/**", "index", "/css/*", "/js/*", "jpeg", "png") // allow access here
                     .permitAll()
                 .anyRequest()
                 .authenticated().and()
